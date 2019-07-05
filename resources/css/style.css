@@ -26,7 +26,9 @@ Grey dark 3: #999
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3); }
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3);
+  --shadow-light: 0 2rem 6rem rgba(0, 0, 0, .2);
+  --border-default: 1px solid var(--color-grey-light-2); }
 
 * {
   margin: 0;
@@ -51,7 +53,7 @@ body {
   min-height: 100vh; }
 
 .container {
-  max-width: 150rem;
+  max-width: 130rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
@@ -61,7 +63,7 @@ body {
   font-size: 1.6rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--border-default);
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -81,8 +83,27 @@ body {
 
 .hotel-view {
   background-color: #fff;
+  flex: 1; }
+
+.detail {
+  font-size: 1.5rem;
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--border-default); }
+
+.description {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  flex: 0 0 60%;
+  padding: 3rem;
+  margin-right: 4.5rem; }
+
+.user-reviews {
   flex: 1;
-  height: 80rem; }
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .logo-box {
   display: flex;
@@ -226,7 +247,7 @@ body {
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2); }
+  border-bottom: var(--border-default); }
   .overview__heading {
     font-size: 2.5rem;
     font-weight: 300;
@@ -276,11 +297,15 @@ body {
   transition: .2s;
   backface-visibility: hidden;
   order: 1;
-  height: 100%;
   align-self: center;
   margin-right: 2rem; }
+  .button-inline span {
+    margin-left: 3px;
+    transition: margin-left .3s; }
   .button-inline:hover {
     color: var(--color-grey-dark-1); }
+    .button-inline:hover span {
+      margin-left: 9px; }
   .button-inline:focus {
     outline: none; }
   .button-inline:focus + .overview__icon-location,
@@ -294,3 +319,85 @@ body {
     transform: translateY(-4px); }
   100% {
     transform: translateY(0); } }
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem; }
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--border-default);
+  border-bottom: var(--border-default);
+  display: flex;
+  flex-wrap: wrap; }
+  .list__item {
+    padding-left: 1.5rem;
+    flex: 0 0 50%;
+    margin-bottom: .7rem; }
+  .list__item::before {
+    content: '';
+    display: inline-block;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: .7rem;
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+    mask-size: cover; }
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .recommend__photo {
+    box-sizing: content-box;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: .3rem solid #fff; }
+    .recommend__photo:not(:last-child) {
+      margin-right: -1.5rem; }
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden; }
+  .review__user {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center; }
+  .review__text {
+    position: relative;
+    z-index: 30; }
+  .review__photo {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%; }
+  .review__user-box {
+    margin: 0 auto 0 1.5rem; }
+  .review__user-name {
+    font-weight: 600;
+    text-transform: uppercase; }
+  .review__user-date {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3); }
+  .review__user-rating {
+    font-weight: 300;
+    color: var(--color-primary);
+    font-size: 3rem; }
+  .review::before {
+    font-family: sans-serif;
+    content: "\201C";
+    position: absolute;
+    line-height: 0;
+    top: 8rem;
+    left: -0.8rem;
+    font-size: 20rem;
+    color: var(--color-grey-light-3); }
