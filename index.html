@@ -15,7 +15,10 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="resources/img//logo.png" alt="Trillo logo" class="logo">
+            <div class="logo-box">
+                <img src="resources/img/logo.png" alt="Trillo logo" class="logo-box__logo">
+                <span class="logo-box__name">Trillo</span>
+            </div>
 
             <form action="#" class="search">
                 <input type="text" class="search__input" placeholder="Search hotels">
@@ -126,13 +129,13 @@
                     </div>
 
                     <div class="overview__location">
+                        <button class="button-inline">Albufeira, Portugal</button>
                         <svg class="overview__icon-location">
                             <use xlink:href="resources/img/sprite.svg#icon-location-pin"></use>
                         </svg>
-                        <button class="btn-inline">Albufeira, Portugal</button>
                     </div>
 
-                    <div class="overwiew__rating">
+                    <div class="overview__rating">
                         <div class="overview__rating-average">8.6</div>
                         <div class="overview__rating-count">429 votes</div>
                     </div>

@@ -1,8 +1,21 @@
 // LOGO
 
-.logo {
-    height: 4rem;
-    margin-left: 2rem;
+.logo-box {
+    display: flex;
+    align-items: center;
+
+    &__logo {
+        height: 4rem;
+        margin-left: 2rem;
+    }
+
+    &__name {
+        font-weight: 300;
+        font-size: 2.7rem;
+        text-transform: uppercase;
+        margin-left: .5rem;
+    }
+    
 }
 
 // SEARCH
@@ -200,36 +213,108 @@
 
 .overview {
     display: flex;
-    
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
 
     &__heading {
-
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
     }
 
     &__stars {
         margin-right: auto;
+        display: flex;
     }
 
-    &__icon-star,
-    &__icon-location {
+    &__icon-star {
         width: 2.25rem;
         height: 2.25rem;
+        fill: var(--color-primary);
+
+        &:last-child {
+            fill: var(--color-grey-light-4);
+        }
+    }
+
+
+
+    &__icon-location {
+        width: 3.25rem;
+        height: 3.25rem;
         fill: var(--color-primary);
     }
 
     &__location {
-        
+        display: flex;
     }
 
     &__rating {
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: stretch;
+        background-color: var(--color-primary);
+        color: #fff;
+        padding: 0 1rem .8rem 1rem;
     }
 
     &__rating-average {
-
+        font-size: 2.75rem;
+        font-weight: 300;
     }
 
     &__rating-count {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+}
 
+// BUTTON INLINE
+
+.button-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .2s;
+    backface-visibility: hidden;
+    order: 1;
+    height: 100%;
+    align-self: center;
+    margin-right: 2rem;
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus + .overview__icon-location,
+    &:hover + .overview__icon-location {
+        animation: jump 1s infinite;    
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
